@@ -1,0 +1,1 @@
+Lakukan sesuka kalian.
