@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+  <iframe id="msBingFrame" width="100%" height="100%"> </iframe>
+  <script> // src/index.js
+
+let currentQueryIndex = 0;
+const queries = ["pala bapak kau benjol", "mim absrud lokal", "gen-z di luar nalar manusia", "Collee Orang Terganteng kedua Sedunia setelah nabi yusuf", "Collee Umaati Ibrahim", "Yahudi Ga di Ajak", "Wahai kaum muslimin", "mim absrud internasional", "Heker ga di ajak", "yatim skill isue", "pake si pake tapi jangan hapus Copyright", "site:cloudmovie.link", "satu satu aku sayang ibu", "dua dua tidak sayang ayah", "tiga tiga sayang adik kaka", "satu dua tiga", "ayah yang tercinta", "wkwk yatim", "hidup menjadi villain adalah tujuanku", "oe oe oe oe", "Keluarkan hard drive dari komputer saya di rumah… Taruh di kamar mandi… Dan pastikan sudah benar-benar bersih.", "siapa pencipta kata toxic", "kenapa collee itu ganteng?", "Idiot kau", "bapakku garena", "bapakku anak keren"]; 
+
+// tambahin atau ganti query lebih banyak lagi terserah lu
+
+function startSearch() {
+    const minDelay = document.getElementById("minDelay").value;
+    const maxDelay = document.getElementById("maxDelay").value;
+    const searchLimit = document.getElementById("searchLimit").value;
+
+    setInterval(() => {
+        if (currentQueryIndex < searchLimit) {
+            const currentQuery = getRandomQuery();
+            const searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(currentQuery)}&PC=U316&FORM=CHROMN`;
+
+            document.getElementById("msBingFrame").src = searchUrl;
+            currentQueryIndex++;
+        } else {
+            // stop setelah mencapai inti bumi
+            clearInterval();
+        }
+    }, Math.random() * (maxDelay - minDelay) + minDelay);
+}
+
+function getRandomQuery() {
+    //query acak dari daftar queries
+    const randomIndex = Math.floor(Math.random() * queries.length);
+    return queries[randomIndex];
+}
+</script>
+  <!-- 
+⡇⣀⣀⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠶⣄⠀⠀⠀⠀⠀⠀⠀⠹⣷⡀⠀⠀⠀⠀⠈⠓⣦⣤⣴⠶⠶⠤⠤⡀⠀⠀
+⡇⣿⣿⡿⠛⠛⠛⠻⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢦⣀⠀⠀⠀⠀⠀⠹⣷⡀⠀⠀⠀⣴⣯⠟⠙⠣⣄⠀⠀⠀⠀⠀⠀
+⣧⡿⠁⠀⠀⠀⠀⠀⠀⠈⠙⢶⣤⣀⠀⠀⠀⠀⢀⣀⣀⣠⣤⣽⠷⠤⠶⠦⠤⠤⣬⣷⡀⢀⣾⠟⠀⠀⠀⠀⠈⠳⣄⠀⠀⠀⠀
+⣿⠀⠀⠀⠀⠀⠀⠀⠀⢀⠳⡀⠙⣯⡽⠒⠚⢉⣩⠵⠚⠋⠉⠉⠉⣁⡠⠤⠶⢶⣶⣼⣷⡜⢁⡠⠖⠚⠛⣻⣿⣶⣬⡳⢦⣀⠀
+⣿⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⢠⣾⠋⢀⡤⠚⠉⠀⠀⠀⢀⡤⢚⡽⠋⠀⣠⠆⢀⠄⠈⠙⢿⣿⡶⢤⠶⠏⠒⠂⠉⠺⠻⡄⠹⡆
+⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣡⠔⠁⠀⠀⠀⠀⣠⠞⢁⡴⠁⠀⢀⠔⣁⠔⢁⠄⠀⠀⢸⡏⢿⡎⢦⠀⠀⠀⠀⠀⠀⠸⣠⡇
+⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⡅⠀⠀⠀⠀⣠⠞⠁⣠⠎⠀⣠⣔⡡⠚⣡⠔⠁⠀⠀⢀⡞⠀⠀⢿⡈⣆⠀⠀⠀⠀⠀⠀⣿⠁
+⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⢠⢞⡏⠀⣴⣃⡤⠾⣋⡡⠔⠋⠀⠀⠀⣠⣴⣩⠀⠀⠀⢘⣇⠸⡄⠀⠀⠀⠀⢠⡇⠀
+⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⠀⢰⠃⡿⠀⢰⣛⣻⣿⣋⣁⣀⣀⣤⡤⠒⠋⣿⡵⠁⠀⠀⢀⡾⢹⡀⣇⠀⠀⠀⢠⣿⠁⠀
+⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣆⠇⠀⡇⠀⡾⣇⠀⠀⢠⡼⠿⣿⠉⢿⣷⡾⠋⠀⢀⣠⣴⠟⠁⣼⣧⣿⡀⠀⢠⡿⣿⠀⠀
+⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡄⢱⠀⣧⡸⣆⠀⠀⠈⠑⠺⠤⠾⠥⠤⣶⣾⣽⠯⣥⡔⢛⡇⣿⡟⡇⢠⡿⢁⡏⠀⠀
+⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡿⣎⣧⡇⠈⠛⠦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣶⣿⡖⣿⠀⢸⠇⢳⠜⠁⢸⠃⠀⠀
+⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢸⡟⣌⠻⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢲⡻⡿⠀⣿⠃⢠⣿⡄⢸⠀⠀⡟⠀⠀⠀
+⡿⠿⢿⣿⡄⠀⠀⠀⠀⠀⡂⠀⠀⠏⢱⣿⣜⣦⡈⠃⠀⠀⠀⠀⠀⢦⣄⠀⠀⠀⠀⠀⡙⢃⡴⣡⠔⢉⡟⠇⢸⠀⢸⠇⠀⠀⠀
+⣿⣦⡀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⡟⠿⠆⠀⠀⠀⠀⠀⠀⢨⢱⣤⣀⠀⠻⠾⢿⠭⢤⡶⠚⠁⡄⢸⢀⡟⠀⠀⠀⠀
+⣿⣿⣿⣶⣼⣇⠀⠀⠀⠀⢀⠀⠀⠀⠀⢸⠘⣿⡄⠀⠀⠀⠀⠀⠀⠀⠈⠣⠖⠃⠀⠀⣠⣫⡴⢻⠃⠀⢠⣷⠇⣼⠁⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢄⠀⠹⡌⢶⣄⠀⠀⠀⠀⠀⠀⠀⣀⣤⠞⠛⠓⠒⠋⢀⣠⣾⠋⢠⠇⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⡿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⢻⣄⣻⡟⠶⣄⣠⠤⠒⠿⣷⣧⡤⠔⣲⣶⡶⠛⠉⠀⠀⡟⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣧⣿⡆⠀⠀⠀⠂⠀⠀⠀⠀⢸⠀⠀⠘⣷⣍⠓⠦⣝⣿⣮⣁⣒⣛⣛⣩⠭⠞⠉⠀⠠⡀⠀⡸⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⢿⡄⠀⠀⡀⠀⠀⠀⠀⢸⠀⠀⠀⢹⣿⣿⢦⡀⠉⠻⣿⣿⣷⣤⣀⠀⠀⠀⠀⠀⢳⠀⡇⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⢃⠀⠀⠀⠀⢸⠀⠀⠀⠈⣏⢿⣳⡌⠓⢿⣿⢟⢿⣿⠯⣳⢦⡀⢢⠀⠸⣆⡇⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⡇⢹⡇⣿⣿⣿⣇⠀⢸⠀⠀⠀⢠⡜⠀⠀⠀⠀⠀⠀⠳⣽⠶⠶⢿⠿⠿⣋⣿⠺⣿⣟⣿⠷⡀⢻⠇⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣆⠘⡄⠀⠀⢈⡇⠀⠀⠀⠀⠀⠀⠀⠈⢉⡏⣞⠀⠀⠙⠻⣗⣬⣻⡿⣗⡿⣼⡀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⡇⠀⢀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢮⣟⠶⣄⡀⠈⠻⣬⣧⠀⢹⣿⣇⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⢷⡆⠀⢸⡇Clolee ganteng muach⠀⠀⠀⠙⠦⣝⣶⣄⣈⣯⠀⠀
+  -->
+  <label for="minDelay">Minimum Delay (ms): </label>
+  <input type="number" id="minDelay" value="10000">
+
+  <label for="maxDelay">Maximum Delay (ms): </label>
+  <input type="number" id="maxDelay" value="25000">
+
+  <label for="searchLimit">Search Limit: </label>
+  <input type="number" id="searchLimit" value="35">
+
+  <button onclick="startSearch()">Start Search</button>
+  <br>
+<p>
+Hi, I'm Collee DeDeOS, hereby providing an explanation about the MS Rewards automated tool that I created. This tool was inspired by an article published by <em>Aleksandr Filatov</em>.
+</p>
+
+<p>
+    This tool was created in a different way from the source of its inspiration. I use different functions and code scripts, so this tool does not violate copyright.
+</p>
+
+<p>
+    If there are any concerns or copyright claims regarding this tool, I am willing to discuss further.
+</p>
+
+<p>
+    Note: This is not a bot, so your account will not be banned.
+</p>
+
+</body>
+</html>
